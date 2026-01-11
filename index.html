@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <title>Tip Calculator – Simple & Fast Bill Split App</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+        content="A fast and simple tip calculator to split bills, calculate tips, and totals per person. Works offline as a Progressive Web App.">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Icons -->
+  <link rel="icon" type="image/png" href="icons/icon-192.png">
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+
+<header>
+  <h1 data-i18n="title">Tip Calculator</h1>
+</header>
+
+<main class="app" id="main">
+
+  <!-- Language selector -->
+  <div class="language-selector">
+    <button data-lang="en" class="lang-btn">EN</button>
+    <button data-lang="es" class="lang-btn">ES</button>
+    <button data-lang="pt" class="lang-btn">PT</button>
+  </div>
+
+  <!-- Theme toggle -->
+  <button class="theme-toggle" id="themeToggle" data-i18n="darkMode">
+    🌙 Dark Mode
+  </button>
+
+  <!-- Inputs principales -->
+  <label for="bill" data-i18n="billAmount">Bill Amount</label>
+  <input type="number" id="bill" placeholder="0.00" step="0.01">
+
+  <label for="tip" data-i18n="tipPercentage">Tip Percentage (%)</label>
+  <input type="number" id="tip" value="15">
+
+  <div class="tip-buttons">
+    <button type="button" data-tip="10">10%</button>
+    <button type="button" data-tip="15">15%</button>
+    <button type="button" data-tip="20">20%</button>
+  </div>
+
+  <label for="people" data-i18n="splitBetween">Split Between</label>
+  <input type="number" id="people" value="1" min="1">
+
+  <!-- ======= Selector de moneda manual ======= -->
+ <!-- ===== Selector de moneda mejorado ===== -->
+<div class="currency-selector">
+  <button data-currency="USD" class="currency-btn">$ USD</button>
+  <button data-currency="ARS" class="currency-btn">$ ARS</button>
+  <button data-currency="EUR" class="currency-btn">€ EUR</button>
+  <button data-currency="BRL" class="currency-btn">R$ BRL</button>
+  <button data-currency="GBP" class="currency-btn">£ GBP</button>
+  <button data-currency="MXN" class="currency-btn">$ MXN</button>
+  <button data-currency="CLP" class="currency-btn">$ CLP</button>
+</div>
+
+<!-- Botón para reiniciar moneda automática -->
+<button id="resetCurrency" class="reset-currency-btn">
+  🔄 Usar moneda automática
+</button>
+
+
+  <!-- Resultados -->
+  <div class="results">
+    <p><span data-i18n="tip">Tip</span> <strong><span id="tipAmount">0.00</span></strong></p>
+    <p><span data-i18n="total">Total</span> <strong><span id="totalAmount">0.00</span></strong></p>
+    <p><span data-i18n="perPerson">Per Person</span> <strong><span id="perPerson">0.00</span></strong></p>
+  </div>
+
+  <div class="ad" data-i18n="adBanner">Ad Banner</div>
+
+</main>
+
+<footer class="footer">
+  <p data-i18n="footer">© 2026 Tip Calculator</p>
+</footer>
+
+<!-- JS -->
+<script src="js/app.js"></script>
+
+<script>
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker
+      .register("service-worker.js")
+      .then(() => console.log("Service Worker registrado"))
+      .catch(error => console.log("Error al registrar SW:", error));
+  }
+</script>
+
+</body>
+</html>
