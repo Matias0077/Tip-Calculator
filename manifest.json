@@ -1,5 +1,6 @@
 {
   "name": "Tip Calculator",
+  
   "short_name": "TipCalc",
   "start_url": "/Tip-Calculator/",
   "display": "standalone",
