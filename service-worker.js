@@ -1,12 +1,13 @@
 const CACHE_NAME = "tip-calculator-v1";
 
 const FILES_TO_CACHE = [
-  "index.html",
-  "manifest.json",
-  "css/styles.css",
-  "js/app.js",
-  "icons/icon-192.png",
-  "icons/icon-512.png"
+  "/Tip-Calculator/",
+  "/Tip-Calculator/index.html",
+  "/Tip-Calculator/manifest.json",
+  "/Tip-Calculator/css/styles.css",
+  "/Tip-Calculator/js/app.js",
+  "/Tip-Calculator/icons/icon-192.png",
+  "/Tip-Calculator/icons/icon-512.png"
 ];
 
 self.addEventListener("install", event => {
